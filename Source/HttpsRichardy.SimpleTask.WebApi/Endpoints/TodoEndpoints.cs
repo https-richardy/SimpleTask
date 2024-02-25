@@ -20,6 +20,14 @@ public static class TodoEndpoints
             return Results.Ok(response);
         });
 
+        endpoint.MapGet("api/todos/{id}", async (IMediator mediator, [FromRoute] int id) =>
+        {
+            var request = new RetrieveTodoByIdQuery { Id = id };
+
+            var response = await mediator.Send(request);
+            return response != null ? Results.Ok(response) : Results.NotFound();
+        });
+
         endpoint.MapPost("api/todos", async (IMediator mediator, CreateTodoCommand request) =>
         {
             await mediator.Send(request);

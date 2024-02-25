@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HttpsRichardy.SimpleTask.Domain\HttpsRichardy.SimpleTask.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

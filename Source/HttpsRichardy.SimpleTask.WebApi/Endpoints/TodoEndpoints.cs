@@ -39,5 +39,13 @@ public static class TodoEndpoints
             var request = new CompleteTodoCommand { TodoId = id };
             await mediator.Send(request);
         });
+
+        endpoint.MapPut("api/todos/{id}", async (IMediator mediator, UpdateTodoCommand request, [FromRoute] int id) =>
+        {
+            request.TodoId = id;
+            await mediator.Send(request);
+
+            return Results.NoContent();
+        });
     }
 }

@@ -10,9 +10,11 @@ internal class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddCors();
         builder.Services.ConfigureServices(configuration);
 
         var app = builder.Build();
+        app.UseCorsConfiguration();
 
         if (app.Environment.IsDevelopment())
         {

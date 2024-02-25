@@ -30,6 +30,6 @@ public class UpdateTodoCommandHandler : IRequestHandler<UpdateTodoCommand>
 
         TinyMapper.Map(request, existingTodo);
 
-        await _todoRepository.SaveAsync(existingTodo);
+        await _todoRepository.UpdateAsync(existingTodo);
     }
 }

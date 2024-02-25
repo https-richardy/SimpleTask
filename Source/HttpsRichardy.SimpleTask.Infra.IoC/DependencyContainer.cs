@@ -11,6 +11,7 @@ public static class DependencyContainer
         services.AddDataPersistence(configuration);
 
         services.AddMediator();
+        services.AddValidation();
         services.AddMapping();
     }
 }

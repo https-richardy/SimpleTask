@@ -46,5 +46,13 @@ public static class TodoEndpoints
 
             return Results.NoContent();
         });
+
+        endpoint.MapDelete("api/todos/{id}", async (IMediator mediator, [FromRoute] int id) =>
+        {
+            var request = new DeleteTodoCommand { TodoId = id };
+
+            await mediator.Send(request);
+            return Results.NoContent();
+        });
     }
 }

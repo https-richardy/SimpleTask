@@ -9,6 +9,7 @@ public static class ValidationExtension
 {
     public static void AddValidation(this IServiceCollection services)
     {
-        services.AddScoped<IValidator<CreateTodoCommand>, CreateTodoCommandValidator>();;
+        services.AddScoped<IValidator<CreateTodoCommand>, CreateTodoCommandValidator>();
+        services.AddScoped<IValidator<UpdateTodoCommand>, UpdateTodoCommandValidator>();
     }
 }

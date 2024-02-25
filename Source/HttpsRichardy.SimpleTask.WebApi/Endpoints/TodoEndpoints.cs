@@ -17,7 +17,7 @@ public static class TodoEndpoints
             };
 
             var response = await mediator.Send(request);
-            Results.Ok(response);
+            return Results.Ok(response);
         });
 
         endpoint.MapPost("api/todos", async (IMediator mediator, CreateTodoCommand request) =>

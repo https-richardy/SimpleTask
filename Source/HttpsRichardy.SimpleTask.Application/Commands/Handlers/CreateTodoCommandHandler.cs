@@ -1,3 +1,4 @@
+using FluentValidation;
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
@@ -7,15 +8,21 @@ namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 public class CreateTodoCommandHandler : IRequestHandler<CreateTodoCommand, CreateTodoResponse>
 {
     private readonly IRepository<ToDo> _todoRepository;
+    private readonly IValidator<CreateTodoCommand> _validator;
 
-    public CreateTodoCommandHandler(IRepository<ToDo> todoRepository)
+    public CreateTodoCommandHandler(IRepository<ToDo> todoRepository, IValidator<CreateTodoCommand> validator)
     {
         _todoRepository = todoRepository;
+        _validator = validator;
     }
 
     public async Task<CreateTodoResponse> Handle(CreateTodoCommand request, CancellationToken cancellationToken)
     {
-        ToDo todo = new ToDo { Title = request.Title };
+        var validationResult = await _validator.ValidateAsync(request);
+        if (!validationResult.IsValid)
+            throw new ValidationException(validationResult.Errors);
+
+        var todo = new ToDo { Title = request.Title };
         await _todoRepository.SaveAsync(todo);
 
         return new CreateTodoResponse { TodoId = todo.Id, Success = true };

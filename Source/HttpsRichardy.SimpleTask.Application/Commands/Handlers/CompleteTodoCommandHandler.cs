@@ -22,6 +22,6 @@ public class CompleteTodoCommandHandler : IRequestHandler<CompleteTodoCommand>
 
         todo.Done = true;
 
-        await _todoRepository.SaveAsync(todo);
+        await _todoRepository.UpdateAsync(todo);
     }
 }

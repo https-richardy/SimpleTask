@@ -9,6 +9,8 @@ public static class DependencyContainer
     public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDataPersistence(configuration);
+
         services.AddMediator();
+        services.AddMapping();
     }
 }

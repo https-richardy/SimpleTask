@@ -1,4 +1,5 @@
 using HttpsRichardy.SimpleTask.Infra.IoC;
+using HttpsRichardy.SimpleTask.WebApi.Middlewares;
 
 internal class Program
 {
@@ -22,6 +23,7 @@ internal class Program
         app.ConfigureEndpoints();
         app.UseHttpsRedirection();
 
+        app.UseMiddleware<ValidationExceptionMiddleware>();
 
         app.Run();
     }

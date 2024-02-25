@@ -2,6 +2,7 @@ using FluentValidation;
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
+using Nelibur.ObjectMapper;
 
 namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 
@@ -22,7 +23,7 @@ public class CreateTodoCommandHandler : IRequestHandler<CreateTodoCommand, Creat
         if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors);
 
-        var todo = new ToDo { Title = request.Title };
+        var todo = TinyMapper.Map<ToDo>(request);
         await _todoRepository.SaveAsync(todo);
 
         return new CreateTodoResponse { TodoId = todo.Id, Success = true };

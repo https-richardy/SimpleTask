@@ -20,7 +20,8 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        app.UseMiddleware<ValidationExceptionMiddleware>();
+        app.UseValidationExceptionHandler();
+        app.UseObjectDoesNotExistExceptionHandler();
 
         app.ConfigureEndpoints();
         app.UseHttpsRedirection();

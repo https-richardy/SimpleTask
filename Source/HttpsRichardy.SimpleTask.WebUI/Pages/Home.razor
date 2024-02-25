@@ -1,7 +1,48 @@
 ﻿@page "/"
+@inject HttpClient httpClient
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container text-center">
+    <h1 class="display-4">SimpleTask WebUI</h1>
+</div>
 
-Welcome to your new app.
+<div class="container mt-4">
+    @if (Todos is null)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+            <p>Loading your tasks...</p>
+        </div>
+    }
+    else if (Todos.Count() == 0)
+    {
+        <p>No tasks found.</p>
+    }
+    else
+    {
+        <div class="row justify-content-center">
+            @foreach (ToDo todo in Todos)
+            {
+                <div class="col-md-4">
+                    <TodoCard Title="@todo.Title" Description="@todo.Description" DueDate="@DateTime.Parse($"{todo.DueDate}")" Priority="@todo.Priority" Done="@todo.Done"/>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    #pragma warning disable CS8618
+
+    public IEnumerable<ToDo> Todos { get; set; }
+
+
+    # pragma warning disable CS8601
+    protected override async Task OnInitializedAsync()
+    {
+        Todos = await httpClient.GetFromJsonAsync<IEnumerable<ToDo>>("api/todos");
+    }
+}

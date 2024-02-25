@@ -20,10 +20,10 @@ internal class Program
             app.UseSwaggerUI();
         }
 
+        app.UseMiddleware<ValidationExceptionMiddleware>();
+
         app.ConfigureEndpoints();
         app.UseHttpsRedirection();
-
-        app.UseMiddleware<ValidationExceptionMiddleware>();
 
         app.Run();
     }

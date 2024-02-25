@@ -1,6 +1,4 @@
-using HttpsRichardy.SimpleTask.Application.Commands;
 using HttpsRichardy.SimpleTask.Infra.IoC;
-using MediatR;
 
 internal class Program
 {
@@ -21,12 +19,7 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        app.MapPost("api/todos", async (IMediator mediator, CreateTodoCommand request) =>
-        {
-            await mediator.Send(request);
-            return Results.Created();
-        });
-
+        app.ConfigureEndpoints();
         app.UseHttpsRedirection();
 
 

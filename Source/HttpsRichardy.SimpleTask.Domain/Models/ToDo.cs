@@ -8,5 +8,5 @@ public record ToDo : Model
     public string? Description { get; set; } = string.Empty;
     public DateTime? DueDate { get; set; }
     public bool Done { get; set; } = false;
-    public Priority Priority { get; set; }
+    public Priority? Priority { get; set; }
 }

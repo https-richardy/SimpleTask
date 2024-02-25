@@ -23,7 +23,7 @@ internal class Program
 
         app.MapPost("api/todos", async (IMediator mediator, CreateTodoCommand request) =>
         {
-            var response = await mediator.Send(request);
+            await mediator.Send(request);
             return Results.Created();
         });
 

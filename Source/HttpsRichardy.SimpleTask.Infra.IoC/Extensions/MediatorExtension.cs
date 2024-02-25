@@ -16,6 +16,8 @@ public static class MediatorExtension
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
         services.AddTransient<IRequestHandler<CreateTodoCommand, CreateTodoResponse>, CreateTodoCommandHandler>();
+        services.AddTransient<IRequestHandler<CompleteTodoCommand>, CompleteTodoCommandHandler>();
+
         services.AddTransient<IRequestHandler<RetrieveAllTodosQuery, IEnumerable<ToDo>>, RetrieveAllTodosQueryHandler>();
         services.AddTransient<IRequestHandler<RetrieveTodoByIdQuery, ToDo>, RetrieveTodoByIdQueryHandler>();
     }

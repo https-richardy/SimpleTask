@@ -17,6 +17,7 @@ public static class MediatorExtension
 
         services.AddTransient<IRequestHandler<CreateTodoCommand, CreateTodoResponse>, CreateTodoCommandHandler>();
         services.AddTransient<IRequestHandler<CompleteTodoCommand>, CompleteTodoCommandHandler>();
+        services.AddTransient<IRequestHandler<UpdateTodoCommand>, UpdateTodoCommandHandler>();
 
         services.AddTransient<IRequestHandler<RetrieveAllTodosQuery, IEnumerable<ToDo>>, RetrieveAllTodosQueryHandler>();
         services.AddTransient<IRequestHandler<RetrieveTodoByIdQuery, ToDo>, RetrieveTodoByIdQueryHandler>();

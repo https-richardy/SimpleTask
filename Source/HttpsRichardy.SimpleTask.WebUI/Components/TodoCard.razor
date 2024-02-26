@@ -2,6 +2,13 @@
     <div class="card-body">
         <h5 class="card-title">@Title</h5>
 
+        @if (Done)
+        {
+            <div class="text-success">
+                <span class="bi bi-check"></span> Completed
+            </div>
+        }
+
         @if (!string.IsNullOrEmpty(Description))
         {
             <p class="card-text">@Description</p>
@@ -19,9 +26,14 @@
             }
         </ul>
 
-        <button class="btn btn-success mr-6" @onclick="CompleteTask">Complete</button>
-        <button class="btn btn-danger mr-6" @onclick="DeleteTask">Delete</button>
-        <button class="btn btn-primary mr-6" @onclick="EditTask">Edit</button>
+        @if (!Done)
+        {
+            <button class="btn btn-success mr-6" @onclick="CompleteTask"><i class="bi bi-bookmark-check mx-2"></i> Complete</button>
+        }
+        <button class="btn btn-danger mr-6" @onclick="DeleteTask"><i class="bi bi-file-earmark-x mx-2"></i> Delete</button>
+        <button class="btn btn-primary mr-6" @onclick="EditTask"><i class="bi bi-pencil mx-2"></i> Edit</button>
+
+
     </div>
 </div>
 
@@ -39,7 +51,7 @@
 
     [Parameter] public Priority? Priority { get; set; }
 
-    [Parameter] public EventCallback OnComplete { get; set; }
+    [Parameter] public EventCallback<int> OnComplete { get; set; }
 
     [Parameter] public EventCallback OnDelete { get; set; }
 
@@ -47,7 +59,7 @@
 
     private void CompleteTask()
     {
-        OnComplete.InvokeAsync();
+        OnComplete.InvokeAsync(Id);
     }
 
     private void DeleteTask()

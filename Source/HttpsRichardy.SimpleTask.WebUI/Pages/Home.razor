@@ -35,6 +35,7 @@
                         Priority="@todo.Priority"
                         Done="@todo.Done"
                         OnComplete="HandleOnComplete"
+                        OnDelete="HandleOnDelete"
                     />
                 </div>
             }
@@ -57,5 +58,10 @@
     private async Task HandleOnComplete(int id)
     {
         await httpClient.PostAsync($"api/todos/complete/{id}", null);
+    }
+
+    private async Task HandleOnDelete(int id)
+    {
+        await httpClient.DeleteAsync($"api/todos/{id}");
     }
 }

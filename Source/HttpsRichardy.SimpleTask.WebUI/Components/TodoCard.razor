@@ -27,7 +27,7 @@
 
 
 @code {
-    [Parameter] public string Id { get; set; }
+    [Parameter] public int Id { get; set; }
 
     [Parameter] public string Title { get; set; } = string.Empty;
 
@@ -39,7 +39,7 @@
 
     [Parameter] public Priority? Priority { get; set; }
 
-    [Parameter] public EventCallback<bool> OnComplete { get; set; }
+    [Parameter] public EventCallback OnComplete { get; set; }
 
     [Parameter] public EventCallback OnDelete { get; set; }
 
@@ -47,7 +47,7 @@
 
     private void CompleteTask()
     {
-        OnComplete.InvokeAsync(!Done);
+        OnComplete.InvokeAsync();
     }
 
     private void DeleteTask()

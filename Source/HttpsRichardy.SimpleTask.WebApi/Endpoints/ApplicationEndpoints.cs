@@ -6,6 +6,7 @@ public static class ApplicationEndpoints
         app.UseEndpoints(endpoints =>
         {
             TodoEndpoints.ConfigureTodoEndpoints(endpoints);
+            AccountEndpoints.ConfigureAccountEndpoints(endpoints);
         });
     }
 }

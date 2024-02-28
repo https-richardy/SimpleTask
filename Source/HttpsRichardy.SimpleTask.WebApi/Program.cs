@@ -10,6 +10,9 @@ internal class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddAuthentication().AddJwtBearer();
+
         builder.Services.AddCors();
         builder.Services.ConfigureServices(configuration);
 

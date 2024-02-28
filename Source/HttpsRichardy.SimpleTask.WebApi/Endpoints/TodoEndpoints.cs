@@ -1,6 +1,7 @@
 using HttpsRichardy.SimpleTask.Application.Commands;
 using HttpsRichardy.SimpleTask.Application.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 public static class TodoEndpoints
@@ -28,26 +29,26 @@ public static class TodoEndpoints
             return response != null ? Results.Ok(response) : Results.NotFound();
         });
 
-        endpoint.MapPost("api/todos", async (IMediator mediator, CreateTodoCommand request) =>
+        endpoint.MapPost("api/todos", [Authorize] async (IMediator mediator, CreateTodoCommand request) =>
         {
             await mediator.Send(request);
             return Results.Created();
         });
 
-        endpoint.MapPost("api/todos/complete/{id}", async (IMediator mediator, [FromRoute] int id) =>
+        endpoint.MapPost("api/todos/complete/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id) =>
         {
             var request = new CompleteTodoCommand { TodoId = id };
             await mediator.Send(request);
         });
 
-        endpoint.MapPut("api/todos/", async (IMediator mediator, UpdateTodoCommand request) =>
+        endpoint.MapPut("api/todos/", [Authorize] async (IMediator mediator, UpdateTodoCommand request) =>
         {
             await mediator.Send(request);
 
             return Results.NoContent();
         });
 
-        endpoint.MapDelete("api/todos/{id}", async (IMediator mediator, [FromRoute] int id) =>
+        endpoint.MapDelete("api/todos/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id) =>
         {
             var request = new DeleteTodoCommand { TodoId = id };
 

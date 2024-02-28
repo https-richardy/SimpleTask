@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 public static class SecurityExtension
 {
-    private static void AddSecurity(this IServiceCollection services, IConfiguration configuration)
+    public static void AddSecurity(this IServiceCollection services, IConfiguration configuration)
     {
         # pragma warning disable CS8604
         var secretKey = Encoding.ASCII.GetBytes(configuration["Jwt:SecretKey"]); /* Possible null reference argument */

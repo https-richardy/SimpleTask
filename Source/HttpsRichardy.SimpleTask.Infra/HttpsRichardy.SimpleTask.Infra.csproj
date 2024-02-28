@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HttpsRichardy.SimpleTask.Domain\HttpsRichardy.SimpleTask.Domain.csproj" />
+    <ProjectReference Include="..\HttpsRichardy.SimpleTask.Application\HttpsRichardy.SimpleTask.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

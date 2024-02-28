@@ -1,4 +1,6 @@
 using System.Text;
+using HttpsRichardy.SimpleTask.Infra.Contracts.Security;
+using HttpsRichardy.SimpleTask.Infra.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,8 @@ public static class SecurityExtension
     {
         # pragma warning disable CS8604
         var secretKey = Encoding.ASCII.GetBytes(configuration["Jwt:SecretKey"]); /* Possible null reference argument */
+
+        services.AddScoped<IJwtService, JwtService>();
 
         services.AddAuthentication(options =>
         {

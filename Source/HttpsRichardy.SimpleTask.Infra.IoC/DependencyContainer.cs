@@ -13,5 +13,8 @@ public static class DependencyContainer
         services.AddMediator();
         services.AddValidation();
         services.AddMapping();
+
+        services.AddIdentityServices();
+        services.AddSecurity(configuration);
     }
 }

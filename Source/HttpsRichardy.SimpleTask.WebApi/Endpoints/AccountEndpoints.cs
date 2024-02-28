@@ -1,4 +1,5 @@
 using HttpsRichardy.SimpleTask.Application.AccountContext.Commands;
+using HttpsRichardy.SimpleTask.Application.AccountContext.Queries;
 using MediatR;
 
 public static class AccountEndpoints
@@ -9,6 +10,12 @@ public static class AccountEndpoints
         {
             await mediator.Send(request);
             return Results.Created();
+        });
+
+        endpoint.MapPost("api/accounts/authenticate", async (IMediator mediator, AuthenticationQuery request) =>
+        {
+            var response = await mediator.Send(request);
+            return Results.Ok(response);
         });
     }
 }

@@ -1,3 +1,4 @@
+using System.Reflection;
 using HttpsRichardy.SimpleTask.Domain.Models;
 using HttpsRichardy.SimpleTask.Infra.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -11,4 +12,9 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
     public AppDbContext(DbContextOptions options)
         : base(options) {  }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
 }

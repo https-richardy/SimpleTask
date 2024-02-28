@@ -13,6 +13,6 @@ public class TodoConfiguration : IEntityTypeConfiguration<ToDo>
 
         builder.HasOne<ApplicationUser>(t => (ApplicationUser) t.User)
             .WithMany(u => u.Todos)
-            .HasForeignKey(t => t.User.Id);
+            .HasForeignKey("UserId");
     }
 }

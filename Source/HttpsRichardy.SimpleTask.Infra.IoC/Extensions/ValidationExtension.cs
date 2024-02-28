@@ -1,4 +1,7 @@
 using FluentValidation;
+using HttpsRichardy.SimpleTask.Application.AccountContext.Commands;
+using HttpsRichardy.SimpleTask.Application.AccountContext.Queries;
+using HttpsRichardy.SimpleTask.Application.AccountContext.Validation;
 using HttpsRichardy.SimpleTask.Application.Commands;
 using HttpsRichardy.SimpleTask.Application.Validation;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,5 +14,12 @@ public static class ValidationExtension
     {
         services.AddScoped<IValidator<CreateTodoCommand>, CreateTodoCommandValidator>();
         services.AddScoped<IValidator<UpdateTodoCommand>, UpdateTodoCommandValidator>();
+
+        # region Account validators
+
+        services.AddScoped<IValidator<CreateAccountCommand>, CreateAccountCommandValidator>();
+        services.AddScoped<IValidator<AuthenticationQuery>, AuthenticationQueryValidator>();
+
+        # endregion
     }
 }

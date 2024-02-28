@@ -14,12 +14,11 @@ public static class IdentityServicesExtension
     {
         services.AddScoped<IUser, ApplicationUser>();
 
-        services.AddScoped<IAccountService, AccountService>();
-
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
+        services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<UserManager<ApplicationUser>>();
     }
 }

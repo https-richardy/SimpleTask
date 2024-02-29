@@ -15,6 +15,7 @@ public static class MappingExtension
             cfg.Bind(src => src.Description, target => target.Description);
             cfg.Bind(src => src.DueDate, target => target.DueDate);
             cfg.Bind(src => src.Priority, target => target.Priority);
+            cfg.Bind(src => src.UserId, target => target.UserId);
         });
 
         TinyMapper.Bind<UpdateTodoCommand, ToDo>(cfg =>

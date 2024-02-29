@@ -1,10 +1,10 @@
+using HttpsRichardy.SimpleTask.Application.Queries.Responses;
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
-using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
 
 namespace HttpsRichardy.SimpleTask.Application.Queries.Handlers;
 
-public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuery, IEnumerable<ToDo>>
+public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuery, IEnumerable<RetrieveAllTodosQueryResponse>>
 {
     private readonly ITodoRepository _todoRepository;
 
@@ -13,7 +13,7 @@ public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuer
         _todoRepository = todoRepository;
     }
 
-    public async Task<IEnumerable<ToDo>> Handle(RetrieveAllTodosQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<RetrieveAllTodosQueryResponse>> Handle(RetrieveAllTodosQuery request, CancellationToken cancellationToken)
     {
         var todos = await _todoRepository.FetchUserTasksAsync(request.UserId);
 
@@ -23,6 +23,15 @@ public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuer
         if (request.IsCompleted)
             todos = todos.Where(todo => todo.Done);
 
-        return await Task.FromResult(todos.ToList());
+        var responseList = todos.Select(todo => new RetrieveAllTodosQueryResponse
+        {
+            Title = todo.Title,
+            Description = todo.Description,
+            DueDate = todo.DueDate,
+            Done = todo.Done,
+            Priority = todo.Priority
+        }).ToList();
+
+        return responseList;
     }
 }

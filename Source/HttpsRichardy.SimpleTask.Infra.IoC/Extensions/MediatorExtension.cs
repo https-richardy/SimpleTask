@@ -8,6 +8,7 @@ using HttpsRichardy.SimpleTask.Application.Commands;
 using HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 using HttpsRichardy.SimpleTask.Application.Queries;
 using HttpsRichardy.SimpleTask.Application.Queries.Handlers;
+using HttpsRichardy.SimpleTask.Application.Queries.Responses;
 using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +26,7 @@ public static class MediatorExtension
         services.AddTransient<IRequestHandler<UpdateTodoCommand>, UpdateTodoCommandHandler>();
         services.AddTransient<IRequestHandler<DeleteTodoCommand>, DeleteTodoCommandHandler>();
 
-        services.AddTransient<IRequestHandler<RetrieveAllTodosQuery, IEnumerable<ToDo>>, RetrieveAllTodosQueryHandler>();
+        services.AddTransient<IRequestHandler<RetrieveAllTodosQuery, IEnumerable<RetrieveAllTodosQueryResponse>>, RetrieveAllTodosQueryHandler>();
         services.AddTransient<IRequestHandler<RetrieveTodoByIdQuery, ToDo>, RetrieveTodoByIdQueryHandler>();
 
         # region Account Mediators

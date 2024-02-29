@@ -483,4 +483,4 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
-HttpsRichardy.SimpleTask.Infra/Data/db.sqlite
+**/*.sqlite

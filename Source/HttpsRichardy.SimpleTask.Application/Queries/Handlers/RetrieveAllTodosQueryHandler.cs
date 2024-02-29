@@ -25,6 +25,7 @@ public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuer
 
         var responseList = todos.Select(todo => new RetrieveAllTodosQueryResponse
         {
+            Id = todo.Id,
             Title = todo.Title,
             Description = todo.Description,
             DueDate = todo.DueDate,

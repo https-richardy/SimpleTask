@@ -1,5 +1,4 @@
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
-using HttpsRichardy.SimpleTask.Domain.Models;
 using HttpsRichardy.SimpleTask.Infra.Data;
 using HttpsRichardy.SimpleTask.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +18,6 @@ public static class DataPersistenceExtension
             options.UseSqlite(connectionString);
         });
 
-        services.AddScoped<IRepository<ToDo>, Repository<ToDo>>();
+        services.AddScoped<ITodoRepository, TodoRepository>();
     }
 }

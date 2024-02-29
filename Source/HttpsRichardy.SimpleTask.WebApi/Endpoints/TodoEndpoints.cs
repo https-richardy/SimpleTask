@@ -23,7 +23,7 @@ public static class TodoEndpoints
             return Results.Ok(response);
         });
 
-        endpoint.MapGet("api/todos/{id}", async (IMediator mediator, [FromRoute] int id, ClaimsPrincipal user) =>
+        endpoint.MapGet("api/todos/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id, ClaimsPrincipal user) =>
         {
             var request = new RetrieveTodoByIdQuery { Id = id, UserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value };
 

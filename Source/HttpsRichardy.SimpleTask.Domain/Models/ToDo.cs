@@ -10,5 +10,6 @@ public record ToDo : Model
     public DateTime? DueDate { get; set; }
     public bool Done { get; set; } = false;
     public IUser User { get; set; }
+    public string UserId { get; set; } = string.Empty;
     public Priority? Priority { get; set; }
 }

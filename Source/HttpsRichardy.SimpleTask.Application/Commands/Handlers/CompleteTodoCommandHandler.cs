@@ -7,9 +7,9 @@ namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 
 public class CompleteTodoCommandHandler : IRequestHandler<CompleteTodoCommand>
 {
-    private readonly IRepository<ToDo> _todoRepository;
+    private readonly ITodoRepository _todoRepository;
 
-    public CompleteTodoCommandHandler(IRepository<ToDo> todoRepository)
+    public CompleteTodoCommandHandler(ITodoRepository todoRepository)
     {
         _todoRepository = todoRepository;
     }

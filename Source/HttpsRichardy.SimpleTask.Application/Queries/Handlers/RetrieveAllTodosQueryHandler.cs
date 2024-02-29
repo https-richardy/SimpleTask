@@ -6,16 +6,16 @@ namespace HttpsRichardy.SimpleTask.Application.Queries.Handlers;
 
 public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuery, IEnumerable<ToDo>>
 {
-    private readonly IRepository<ToDo> _todoRepository;
+    private readonly ITodoRepository _todoRepository;
 
-    public RetrieveAllTodosQueryHandler(IRepository<ToDo> todoRepository)
+    public RetrieveAllTodosQueryHandler(ITodoRepository todoRepository)
     {
         _todoRepository = todoRepository;
     }
 
     public async Task<IEnumerable<ToDo>> Handle(RetrieveAllTodosQuery request, CancellationToken cancellationToken)
     {
-        var todos = await _todoRepository.RetrieveAllAsync();
+        var todos = await _todoRepository.FetchUserTasksAsync(request.UserId);
 
         if (!string.IsNullOrEmpty(request.Title))
             todos = todos.Where(todo => todo.Title.Contains(request.Title, StringComparison.OrdinalIgnoreCase));

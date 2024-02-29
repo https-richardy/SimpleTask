@@ -8,10 +8,10 @@ namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 
 public class CreateTodoCommandHandler : IRequestHandler<CreateTodoCommand, CreateTodoResponse>
 {
-    private readonly IRepository<ToDo> _todoRepository;
+    private readonly ITodoRepository _todoRepository;
     private readonly IValidator<CreateTodoCommand> _validator;
 
-    public CreateTodoCommandHandler(IRepository<ToDo> todoRepository, IValidator<CreateTodoCommand> validator)
+    public CreateTodoCommandHandler(ITodoRepository todoRepository, IValidator<CreateTodoCommand> validator)
     {
         _todoRepository = todoRepository;
         _validator = validator;

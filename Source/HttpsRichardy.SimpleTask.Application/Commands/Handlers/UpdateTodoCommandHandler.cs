@@ -1,7 +1,6 @@
 using FluentValidation;
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Domain.Exceptions;
-using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
 using Nelibur.ObjectMapper;
 
@@ -9,10 +8,10 @@ namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
 
 public class UpdateTodoCommandHandler : IRequestHandler<UpdateTodoCommand>
 {
-    private readonly IRepository<ToDo> _todoRepository;
+    private readonly ITodoRepository _todoRepository;
     private readonly IValidator<UpdateTodoCommand> _validator;
 
-    public UpdateTodoCommandHandler(IRepository<ToDo> todoRepository, IValidator<UpdateTodoCommand> validator)
+    public UpdateTodoCommandHandler(ITodoRepository todoRepository, IValidator<UpdateTodoCommand> validator)
     {
         _todoRepository = todoRepository;
         _validator = validator;

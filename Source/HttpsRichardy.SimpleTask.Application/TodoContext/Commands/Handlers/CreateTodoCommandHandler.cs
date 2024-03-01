@@ -4,7 +4,7 @@ using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 using MediatR;
 using Nelibur.ObjectMapper;
 
-namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Commands.Handlers;
 
 public class CreateTodoCommandHandler : IRequestHandler<CreateTodoCommand, CreateTodoResponse>
 {

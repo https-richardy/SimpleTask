@@ -1,6 +1,6 @@
 using System.Security.Claims;
-using HttpsRichardy.SimpleTask.Application.Commands;
-using HttpsRichardy.SimpleTask.Application.Queries;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Commands;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

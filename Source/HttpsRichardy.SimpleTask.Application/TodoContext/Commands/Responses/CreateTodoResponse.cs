@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace HttpsRichardy.SimpleTask.Application.Commands;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Commands;
 
 public record CreateTodoResponse
 {

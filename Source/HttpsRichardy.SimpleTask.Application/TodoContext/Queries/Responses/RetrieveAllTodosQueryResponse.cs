@@ -1,6 +1,6 @@
 using HttpsRichardy.SimpleTask.Domain.TodoContext.Models.Enums;
 
-namespace HttpsRichardy.SimpleTask.Application.Queries.Responses;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Responses;
 
 public record RetrieveAllTodosQueryResponse
 {

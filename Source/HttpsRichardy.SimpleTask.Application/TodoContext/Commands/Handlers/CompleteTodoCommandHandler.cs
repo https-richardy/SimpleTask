@@ -2,7 +2,7 @@ using HttpsRichardy.SimpleTask.Domain.Exceptions;
 using HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 using MediatR;
 
-namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Commands.Handlers;
 
 public class CompleteTodoCommandHandler : IRequestHandler<CompleteTodoCommand>
 {

@@ -1,8 +1,8 @@
-using HttpsRichardy.SimpleTask.Application.Queries.Responses;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Responses;
 using HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 using MediatR;
 
-namespace HttpsRichardy.SimpleTask.Application.Queries.Handlers;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Handlers;
 
 public class RetrieveAllTodosQueryHandler : IRequestHandler<RetrieveAllTodosQuery, IEnumerable<RetrieveAllTodosQueryResponse>>
 {

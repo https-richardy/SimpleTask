@@ -1,7 +1,7 @@
 using HttpsRichardy.SimpleTask.Domain.TodoContext.Models.Enums;
 using MediatR;
 
-namespace HttpsRichardy.SimpleTask.Application.Commands;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Commands;
 
 public record UpdateTodoCommand : IRequest
 {

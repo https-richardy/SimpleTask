@@ -1,7 +1,7 @@
-using HttpsRichardy.SimpleTask.Application.Queries.Responses;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Responses;
 using MediatR;
 
-namespace HttpsRichardy.SimpleTask.Application.Queries;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Queries;
 
 public record RetrieveTodoByIdQuery : IRequest<RetrieveTodoByIdQueryResponse>
 {

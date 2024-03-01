@@ -4,11 +4,12 @@ using HttpsRichardy.SimpleTask.Application.AccountContext.Commands.Handlers;
 using HttpsRichardy.SimpleTask.Application.AccountContext.Commands.Responses;
 using HttpsRichardy.SimpleTask.Application.AccountContext.Queries;
 using HttpsRichardy.SimpleTask.Application.AccountContext.Queries.Responses;
-using HttpsRichardy.SimpleTask.Application.Commands;
-using HttpsRichardy.SimpleTask.Application.Commands.Handlers;
-using HttpsRichardy.SimpleTask.Application.Queries;
 using HttpsRichardy.SimpleTask.Application.Queries.Handlers;
-using HttpsRichardy.SimpleTask.Application.Queries.Responses;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Commands;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Commands.Handlers;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Handlers;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Queries.Responses;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 

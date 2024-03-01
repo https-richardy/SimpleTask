@@ -1,11 +1,11 @@
 using FluentValidation;
-using HttpsRichardy.SimpleTask.Application.Commands;
+using HttpsRichardy.SimpleTask.Application.TodoContext.Commands;
 
-namespace HttpsRichardy.SimpleTask.Application.Validation;
+namespace HttpsRichardy.SimpleTask.Application.TodoContext.Validation;
 
-public class CreateTodoCommandValidator : AbstractValidator<CreateTodoCommand>, IValidator<CreateTodoCommand>
+public class UpdateTodoCommandValidator : AbstractValidator<UpdateTodoCommand>, IValidator<UpdateTodoCommand>
 {
-    public CreateTodoCommandValidator()
+    public UpdateTodoCommandValidator()
     {
         RuleFor(command => command.Title)
             .NotEmpty().WithMessage("Title is required.")

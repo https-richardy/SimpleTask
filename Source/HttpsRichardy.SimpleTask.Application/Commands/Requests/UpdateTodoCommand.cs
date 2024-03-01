@@ -5,6 +5,7 @@ namespace HttpsRichardy.SimpleTask.Application.Commands;
 
 public record UpdateTodoCommand : IRequest
 {
+    public string UserId { get; set; } = string.Empty;
     public int TodoId { get; set; }
     public string Title { get; init; } = string.Empty;
     public string? Description { get; init; }

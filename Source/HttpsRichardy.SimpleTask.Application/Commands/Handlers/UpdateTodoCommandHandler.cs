@@ -23,6 +23,9 @@ public class UpdateTodoCommandHandler : IRequestHandler<UpdateTodoCommand>
         if (existingTodo == null)
             throw new ObjectDoesNotExistException($"The task with ID '{request.TodoId}' does not exist.");
 
+        if (existingTodo.UserId != request.UserId)
+            throw new UnauthorizedException();
+
         var validationResult = await _validator.ValidateAsync(request);
         if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors);

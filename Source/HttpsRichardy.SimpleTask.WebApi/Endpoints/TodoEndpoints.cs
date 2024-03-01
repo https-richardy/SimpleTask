@@ -52,9 +52,9 @@ public static class TodoEndpoints
             return Results.NoContent();
         });
 
-        endpoint.MapDelete("api/todos/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id) =>
+        endpoint.MapDelete("api/todos/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id, ClaimsPrincipal user) =>
         {
-            var request = new DeleteTodoCommand { TodoId = id };
+            var request = new DeleteTodoCommand { TodoId = id, UserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value};
 
             await mediator.Send(request);
             return Results.NoContent();

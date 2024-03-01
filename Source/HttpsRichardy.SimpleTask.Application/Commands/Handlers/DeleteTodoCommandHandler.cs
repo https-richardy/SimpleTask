@@ -19,6 +19,9 @@ public class DeleteTodoCommandHandler : IRequestHandler<DeleteTodoCommand>
         if (todo is null)
             throw new ObjectDoesNotExistException($"the task with the ID '{request.TodoId}' does not exist.");
 
+        if (todo.UserId != request.UserId)
+            throw new UnauthorizedException();
+
         await _todoRepository.DeleteAsync(todo);
     }
 }

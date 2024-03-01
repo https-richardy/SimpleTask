@@ -41,4 +41,23 @@ public class TodoRepositoryTests : IAsyncLifetime
         Assert.NotNull(savedTodo);
         Assert.Equal(newTodo.Id, savedTodo.Id);
     }
+
+    [Fact]
+    public async Task GivenExistingTodo_WhenUpdateAsyncCalled_ThenShouldBeUpdatedInDatabase()
+    {
+        var existingTodo = _fixture.Create<ToDo>();
+        await _todoRepository.SaveAsync(existingTodo);
+
+        var updatedTodo = _fixture.Build<ToDo>()
+            .With(t => t.Id, existingTodo.Id)
+            .With(t => t.Title, "updated title")
+            .Create();
+
+        await _todoRepository.UpdateAsync(updatedTodo);
+        var retrievedTodo = await _dbContext.ToDos.FindAsync(existingTodo.Id);
+
+        Assert.NotNull(retrievedTodo);
+        Assert.Equal(existingTodo.Id, retrievedTodo.Id);
+        Assert.NotEqual(existingTodo.Title, retrievedTodo.Title);
+    }
 }

@@ -45,9 +45,11 @@ public static class TodoEndpoints
             await mediator.Send(request);
         });
 
-        endpoint.MapPut("api/todos/", [Authorize] async (IMediator mediator, UpdateTodoCommand request, ClaimsPrincipal user) =>
+        endpoint.MapPut("api/todos/{id}", [Authorize] async (IMediator mediator, UpdateTodoCommand request, [FromRoute] int id, ClaimsPrincipal user) =>
         {
             request.UserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            request.TodoId = id;
+
             await mediator.Send(request);
 
             return Results.NoContent();

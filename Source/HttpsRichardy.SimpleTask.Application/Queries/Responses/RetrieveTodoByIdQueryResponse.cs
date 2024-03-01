@@ -1,4 +1,4 @@
-using HttpsRichardy.SimpleTask.Domain.Models.Enums;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models.Enums;
 
 namespace HttpsRichardy.SimpleTask.Application.Queries.Responses;
 

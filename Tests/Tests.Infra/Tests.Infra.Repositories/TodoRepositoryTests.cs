@@ -29,4 +29,16 @@ public class TodoRepositoryTests : IAsyncLifetime
     {
         await _dbContext.Database.EnsureCreatedAsync();
     }
+
+    [Fact]
+    public async Task GivenNewTodo_WhenSaveAsyncCalled_ThenShouldBeInsertedIntoDatabase()
+    {
+        var newTodo = _fixture.Create<ToDo>();
+        await _todoRepository.SaveAsync(newTodo);
+
+        var savedTodo = await _dbContext.ToDos.FindAsync(newTodo.Id);
+
+        Assert.NotNull(savedTodo);
+        Assert.Equal(newTodo.Id, savedTodo.Id);
+    }
 }

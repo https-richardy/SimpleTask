@@ -39,9 +39,9 @@ public static class TodoEndpoints
             return Results.Created();
         });
 
-        endpoint.MapPost("api/todos/complete/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id) =>
+        endpoint.MapPost("api/todos/complete/{id}", [Authorize] async (IMediator mediator, [FromRoute] int id, ClaimsPrincipal user) =>
         {
-            var request = new CompleteTodoCommand { TodoId = id };
+            var request = new CompleteTodoCommand { TodoId = id, UserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value };
             await mediator.Send(request);
         });
 

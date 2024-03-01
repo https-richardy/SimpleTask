@@ -1,13 +1,13 @@
 namespace HttpsRichardy.SimpleTask.Domain.Exceptions;
 
-public class UnauthorizedAccessException : Exception
+public class UnauthorizedException : Exception
 {
-    public UnauthorizedAccessException()
+    public UnauthorizedException()
         : base("Unauthorized access.") {  }
 
-    public UnauthorizedAccessException(string message)
+    public UnauthorizedException(string message)
         : base(message) {  }
 
-    public UnauthorizedAccessException(string message, Exception innerException)
+    public UnauthorizedException(string message, Exception innerException)
         : base(message, innerException) {  }
 }

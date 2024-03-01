@@ -1,6 +1,5 @@
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Domain.Exceptions;
-using HttpsRichardy.SimpleTask.Domain.Models;
 using MediatR;
 
 namespace HttpsRichardy.SimpleTask.Application.Commands.Handlers;
@@ -19,6 +18,9 @@ public class CompleteTodoCommandHandler : IRequestHandler<CompleteTodoCommand>
         var todo = await _todoRepository.RetrieveByIdAsync(request.TodoId);
         if (todo is null)
             throw new ObjectDoesNotExistException($"the task with the ID '{request.TodoId}' does not exist.");
+
+        if (todo.UserId != request.UserId)
+            throw new UnauthorizedAccessException();
 
         todo.Done = true;
 

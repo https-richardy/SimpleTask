@@ -1,4 +1,5 @@
 using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.Shared.Contracts.Repositories;
 
 namespace HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 

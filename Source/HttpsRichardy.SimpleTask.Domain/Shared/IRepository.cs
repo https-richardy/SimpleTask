@@ -1,6 +1,6 @@
-using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.Shared.Models;
 
-namespace HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
+namespace HttpsRichardy.SimpleTask.Domain.Shared.Contracts.Repositories;
 
 public interface IRepository<TModel> where TModel : Model
 {

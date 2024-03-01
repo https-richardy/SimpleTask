@@ -1,4 +1,4 @@
-namespace HttpsRichardy.SimpleTask.Domain.Models;
+namespace HttpsRichardy.SimpleTask.Domain.Shared.Models;
 
 public record Model
 {

@@ -1,4 +1,5 @@
 using HttpsRichardy.SimpleTask.Domain.Models.Enums;
+using HttpsRichardy.SimpleTask.Domain.Shared.Models;
 
 namespace HttpsRichardy.SimpleTask.Domain.Models;
 

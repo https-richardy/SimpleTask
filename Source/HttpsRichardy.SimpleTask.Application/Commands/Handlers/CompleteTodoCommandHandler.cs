@@ -20,7 +20,7 @@ public class CompleteTodoCommandHandler : IRequestHandler<CompleteTodoCommand>
             throw new ObjectDoesNotExistException($"the task with the ID '{request.TodoId}' does not exist.");
 
         if (todo.UserId != request.UserId)
-            throw new UnauthorizedAccessException();
+            throw new UnauthorizedException();
 
         todo.Done = true;
 

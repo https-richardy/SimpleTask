@@ -73,4 +73,16 @@ public class TodoRepositoryTests : IAsyncLifetime
 
         Assert.Null(retrievedTodo);
     }
+
+    [Fact]
+    public async Task GivenExistingTodo_WhenRetrieveByIdAsyncCalled_ThenShouldReturnTodo()
+    {
+        var existingTodo = _fixture.Create<ToDo>();
+        await _todoRepository.SaveAsync(existingTodo);
+
+        var retrievedTodo = await _todoRepository.RetrieveByIdAsync(existingTodo.Id);
+
+        Assert.NotNull(retrievedTodo);
+        Assert.Equal(existingTodo.Id, retrievedTodo.Id);
+    }
 }

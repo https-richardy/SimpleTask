@@ -24,6 +24,7 @@ internal class Program
 
         app.UseObjectDoesNotExistExceptionHandler();
         app.UseValidationExceptionHandler();
+        app.UseUnauthorizedExceptionMiddlewareHandler();
 
         app.ConfigureEndpoints();
         app.UseHttpsRedirection();

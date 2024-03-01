@@ -60,4 +60,17 @@ public class TodoRepositoryTests : IAsyncLifetime
         Assert.Equal(existingTodo.Id, retrievedTodo.Id);
         Assert.NotEqual(existingTodo.Title, retrievedTodo.Title);
     }
+
+    [Fact]
+    public async Task GivenExistingTodo_WhenDeleteAsyncCalled_ThenShouldBeRemovedFromDatabase()
+    {
+        var existingTodo = _fixture.Create<ToDo>();
+
+        await _todoRepository.SaveAsync(existingTodo);
+        await _todoRepository.DeleteAsync(existingTodo);
+
+        var retrievedTodo = await _dbContext.ToDos.FindAsync(existingTodo.Id);
+
+        Assert.Null(retrievedTodo);
+    }
 }

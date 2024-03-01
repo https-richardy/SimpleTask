@@ -2,5 +2,5 @@ namespace HttpsRichardy.SimpleTask.Domain.Shared.Models;
 
 public record Model
 {
-    public int Id { get; private set; }
+    public int Id { get; set; }
 }

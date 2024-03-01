@@ -1,5 +1,6 @@
 using HttpsRichardy.SimpleTask.Application.Queries.Responses;
 using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
+using HttpsRichardy.SimpleTask.Domain.Exceptions;
 using MediatR;
 
 namespace HttpsRichardy.SimpleTask.Application.Queries.Handlers;
@@ -15,7 +16,11 @@ public class RetrieveTodoByIdQueryHandler : IRequestHandler<RetrieveTodoByIdQuer
 
     public async Task<RetrieveTodoByIdQueryResponse> Handle(RetrieveTodoByIdQuery request, CancellationToken cancellationToken)
     {
-        var todo = await _todoRepository.FetchUserTaskByIdAsync(request.UserId, request.Id);
+        var todo = await _todoRepository.RetrieveByIdAsync(request.Id);
+
+        if (todo.UserId != request.UserId)
+            throw new UnauthorizedException();
+
         return new RetrieveTodoByIdQueryResponse
         {
             Id = todo.Id,

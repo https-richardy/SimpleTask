@@ -1,5 +1,5 @@
 using System.Reflection;
-using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 using HttpsRichardy.SimpleTask.Infra.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

@@ -1,6 +1,6 @@
 using FluentValidation;
-using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Domain.Exceptions;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 using MediatR;
 using Nelibur.ObjectMapper;
 

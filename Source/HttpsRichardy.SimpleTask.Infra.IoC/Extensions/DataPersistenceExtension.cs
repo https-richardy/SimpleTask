@@ -1,4 +1,4 @@
-using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 using HttpsRichardy.SimpleTask.Infra.Data;
 using HttpsRichardy.SimpleTask.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;

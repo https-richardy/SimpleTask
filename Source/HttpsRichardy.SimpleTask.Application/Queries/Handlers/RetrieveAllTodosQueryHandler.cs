@@ -1,5 +1,5 @@
 using HttpsRichardy.SimpleTask.Application.Queries.Responses;
-using HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 using MediatR;
 
 namespace HttpsRichardy.SimpleTask.Application.Queries.Handlers;

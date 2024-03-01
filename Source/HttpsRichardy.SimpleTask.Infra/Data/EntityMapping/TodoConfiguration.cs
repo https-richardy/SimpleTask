@@ -1,4 +1,4 @@
-using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 using HttpsRichardy.SimpleTask.Infra.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

@@ -1,7 +1,7 @@
-using HttpsRichardy.SimpleTask.Domain.Models;
 using HttpsRichardy.SimpleTask.Domain.Shared.Contracts.Repositories;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 
-namespace HttpsRichardy.SimpleTask.Domain.Contracts.Repositories;
+namespace HttpsRichardy.SimpleTask.Domain.TodoContext.Contracts.Repositories;
 
 public interface ITodoRepository : IRepository<ToDo>
 {

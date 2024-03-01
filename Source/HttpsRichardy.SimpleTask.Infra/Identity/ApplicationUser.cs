@@ -1,4 +1,4 @@
-using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace HttpsRichardy.SimpleTask.Infra.Identity;

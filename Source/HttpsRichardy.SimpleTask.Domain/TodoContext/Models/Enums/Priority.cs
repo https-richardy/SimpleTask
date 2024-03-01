@@ -1,4 +1,4 @@
-namespace HttpsRichardy.SimpleTask.Domain.Models.Enums;
+namespace HttpsRichardy.SimpleTask.Domain.TodoContext.Models.Enums;
 
 public enum Priority
 {

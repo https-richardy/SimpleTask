@@ -1,5 +1,5 @@
 using HttpsRichardy.SimpleTask.Application.Commands;
-using HttpsRichardy.SimpleTask.Domain.Models;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Nelibur.ObjectMapper;
 

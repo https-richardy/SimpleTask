@@ -1,7 +1,7 @@
-using HttpsRichardy.SimpleTask.Domain.Models.Enums;
 using HttpsRichardy.SimpleTask.Domain.Shared.Models;
+using HttpsRichardy.SimpleTask.Domain.TodoContext.Models.Enums;
 
-namespace HttpsRichardy.SimpleTask.Domain.Models;
+namespace HttpsRichardy.SimpleTask.Domain.TodoContext.Models;
 
 public record ToDo : Model
 {
